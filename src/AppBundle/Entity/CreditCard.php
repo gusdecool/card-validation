@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Validator\Constraint as AppAssert;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -76,6 +77,9 @@ class CreditCard
      * @var string
      *
      * @ORM\Column(name="credit_card_number", type="string", length=255)
+     *
+     * @Assert\NotNull()
+     * @AppAssert\CreditCardNumber()
      *
      * @Serializer\Expose
      * @Serializer\Type("string")

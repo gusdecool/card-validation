@@ -3,7 +3,6 @@
 namespace AppBundle\Utility;
 
 use AppBundle\Entity\CreditCard;
-use AppBundle\Exception\UnknownCardTypeException;
 
 class CardTypeUtility
 {
@@ -14,8 +13,7 @@ class CardTypeUtility
 
     /**
      * @param string $number credit card number
-     * @return string
-     * @throws UnknownCardTypeException
+     * @return null|string
      */
     public function getCardType($number)
     {
@@ -35,7 +33,7 @@ class CardTypeUtility
             return CreditCard::TYPE_VISA;
         }
 
-        throw new UnknownCardTypeException();
+        return null;
     }
 
     /**

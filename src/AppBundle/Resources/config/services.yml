@@ -18,3 +18,11 @@ services:
 
     app.utility.card_type:
         class: AppBundle\Utility\CardTypeUtility
+
+    app.validator.credit_card_numer:
+        class: AppBundle\Validator\CreditCardNumberValidator
+        arguments:
+            - "@app.utility.algorithm"
+            - "@app.utility.card_type"
+        tags:
+            - { name: validator.constraint_validator, alias: credit_card_number_validator }

@@ -91,14 +91,6 @@ class CardTypeUtilityTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(CreditCard::TYPE_DISCOVER, $this->utility->getCardType('6011567890123456'));
         $this->assertEquals(CreditCard::TYPE_MASTER_CARD, $this->utility->getCardType('5134567890123456'));
         $this->assertEquals(CreditCard::TYPE_VISA, $this->utility->getCardType('4234567890123'));
-    }
-
-    /**
-     * @group unit
-     * @expectedException \AppBundle\Exception\UnknownCardTypeException
-     */
-    public function testGetCardTypeThrowException()
-    {
-        $this->utility->getCardType('1234567890123456');
+        $this->assertEquals(null, $this->utility->getCardType('1234567890123456'));
     }
 }
