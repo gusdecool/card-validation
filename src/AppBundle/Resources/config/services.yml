@@ -13,5 +13,8 @@ services:
         arguments:
             - AppBundle\Entity\CreditCard
 
+    app.utility.algorithm:
+        class: AppBundle\Utility\AlgorithmUtility
+
     app.utility.card_type:
         class: AppBundle\Utility\CardTypeUtility
