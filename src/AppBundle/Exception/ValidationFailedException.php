@@ -21,7 +21,7 @@ class ValidationFailedException extends \RuntimeException implements HttpExcepti
     private $validationErrors = [];
 
     #----------------------------------------------------------------------------------------------
-    # Constructor
+    # Magic methods
     #----------------------------------------------------------------------------------------------
 
     /**

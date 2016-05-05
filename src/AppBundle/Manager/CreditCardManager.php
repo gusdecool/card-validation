@@ -5,6 +5,7 @@ namespace AppBundle\Manager;
 use AppBundle\Entity\CreditCard;
 use AppBundle\Exception\ValidationFailedException;
 use AppBundle\Repository\CreditCardRepository;
+use AppBundle\Utility\CardTypeUtility;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 
 class CreditCardManager
@@ -24,20 +25,30 @@ class CreditCardManager
      */
     private $validator;
 
+    /**
+     * @var CardTypeUtility
+     */
+    private $cardTypeUtility;
+
     #----------------------------------------------------------------------------------------------
     # Magic methods
     #----------------------------------------------------------------------------------------------
 
     /**
      * CreditCardManager constructor.
-     * 
+     *
      * @param CreditCardRepository $repository
      * @param ValidatorInterface $validator
+     * @param CardTypeUtility $cardTypeUtility
      */
-    public function __construct(CreditCardRepository $repository, ValidatorInterface $validator)
-    {
+    public function __construct(
+        CreditCardRepository $repository,
+        ValidatorInterface $validator,
+        CardTypeUtility $cardTypeUtility
+    ) {
         $this->repository = $repository;
         $this->validator = $validator;
+        $this->cardTypeUtility = $cardTypeUtility;
     }
 
     #----------------------------------------------------------------------------------------------
@@ -46,6 +57,7 @@ class CreditCardManager
 
     /**
      * @param CreditCard $creditCard
+     * @throws ValidationFailedException
      */
     public function save(CreditCard $creditCard)
     {
@@ -55,6 +67,7 @@ class CreditCardManager
             throw new ValidationFailedException($errors);
         }
         
+        $creditCard->setType($this->cardTypeUtility->getCardType($creditCard->getCreditCardNumber()));
         $this->repository->save($creditCard);
     }
 }

@@ -5,9 +5,13 @@ services:
         arguments:
             - "@app.repository.credit_card"
             - "@validator"
+            - "@app.utility.card_type"
 
     app.repository.credit_card:
         class: AppBundle\Repository\CreditCardRepository
         factory: ["@doctrine.orm.default_entity_manager", getRepository]
         arguments:
             - AppBundle\Entity\CreditCard
+
+    app.utility.card_type:
+        class: AppBundle\Utility\CardTypeUtility
