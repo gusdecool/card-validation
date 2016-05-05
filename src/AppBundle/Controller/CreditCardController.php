@@ -11,8 +11,9 @@ use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 class CreditCardController extends Controller
 {
+
     /**
-     * @FrameworkExtra\Route("/", name="home_get")
+     * @FrameworkExtra\Route("/", name="card_get")
      * @FrameworkExtra\Method("GET")
      * @FrameworkExtra\Template()
      *
@@ -24,7 +25,7 @@ class CreditCardController extends Controller
     }
 
     /**
-     * @FrameworkExtra\Route("/", name="home_post")
+     * @FrameworkExtra\Route("/", name="card_post")
      * @FrameworkExtra\Method("POST")
      *
      * @param Request $request
@@ -45,6 +46,25 @@ class CreditCardController extends Controller
         }
 
         $this->getDoctrine()->getManager()->flush();
+
+        return $response;
+    }
+
+    /**
+     * To test if the entity if properly decrypted
+     *
+     * @FrameworkExtra\Route("/{id}", name="card_view")
+     * @FrameworkExtra\Method("GET")
+     *
+     * @param CreditCard $creditCard
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function viewAction(CreditCard $creditCard)
+    {
+        $response = new JsonResponse();
+        $response->setData(json_decode($this->get('jms_serializer')->serialize($creditCard, 'json')));
+        $response->setStatusCode(200);
 
         return $response;
     }

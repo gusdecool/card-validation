@@ -13,11 +13,24 @@ services:
         arguments:
             - AppBundle\Entity\CreditCard
 
+    app.subscriber.encyption:
+        class: AppBundle\Subscriber\EncryptionSubscriber
+        arguments:
+            - "@annotations.reader"
+            - "@app.utility.encryption"
+        tags:
+            - { name: doctrine.event_subscriber }
+
     app.utility.algorithm:
         class: AppBundle\Utility\AlgorithmUtility
 
     app.utility.card_type:
         class: AppBundle\Utility\CardTypeUtility
+
+    app.utility.encryption:
+        class: AppBundle\Utility\EncryptionUtility
+        arguments:
+            - "%aes_key%"
 
     app.validator.credit_card_numer:
         class: AppBundle\Validator\CreditCardNumberValidator

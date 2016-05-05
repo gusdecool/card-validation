@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Annotation as Annotation;
 use AppBundle\Validator\Constraint as AppAssert;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
@@ -48,6 +49,7 @@ class CreditCard
     /**
      * @var string
      *
+     * @Annotation\Encrypt()
      * @ORM\Column(name="name", type="string", length=255)
      *
      * @Assert\NotNull()
@@ -62,6 +64,7 @@ class CreditCard
     /**
      * @var string
      *
+     * @Annotation\Encrypt()
      * @ORM\Column(name="postcode", type="string", length=255)
      *
      * @Assert\NotNull()
@@ -76,6 +79,7 @@ class CreditCard
     /**
      * @var string
      *
+     * @Annotation\Encrypt()
      * @ORM\Column(name="credit_card_number", type="string", length=255)
      *
      * @Assert\NotNull()
@@ -90,6 +94,7 @@ class CreditCard
     /**
      * @var string
      *
+     * @Annotation\Encrypt()
      * @ORM\Column(name="type", type="string", length=255)
      *
      * @Serializer\Expose
