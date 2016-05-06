@@ -9,5 +9,6 @@
 /bin/
 /vendor/
 /web/bundles/
+/web/vendor/
 .vagrant
 /html

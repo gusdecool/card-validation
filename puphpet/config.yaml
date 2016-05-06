@@ -300,10 +300,11 @@ python:
     packages: {  }
     versions: {  }
 nodejs:
-    install: '0'
+    install: '1'
     settings:
         version: '5'
-    npm_packages: {  }
+    npm_packages:
+        - bower
 hhvm:
     install: '0'
     nightly: 0

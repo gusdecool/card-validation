@@ -2,12 +2,29 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}" />
+            <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap-theme.css') }}" />
+        {% endblock %}
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="container">
+            {% block body %}
+            {% endblock %}
+        </div>
+
+        <div rel="javascript-library">
+            {% block javascripts %}
+                <script src="{{ asset('vendor/jquery/dist/jquery.js') }}"></script>
+                <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
+                <script src="{{ asset('vendor/angular/angular.js') }}"></script>
+            {% endblock %}
+        </div>
     </body>
 </html>

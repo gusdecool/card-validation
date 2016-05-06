@@ -20,7 +20,7 @@ class AlgorithmUtility
         $flip = 0;
         
         for ($i = strlen($number) - 1; $i >= 0; $i--) {
-            $sum += $sumTable[$flip++ & 0x1][$number[$i]];
+            $sum += $sumTable[$flip++ % 2][$number[$i]];
         }
 
         return $sum % 10 === 0;

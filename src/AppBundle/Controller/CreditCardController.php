@@ -51,7 +51,7 @@ class CreditCardController extends Controller
     }
 
     /**
-     * To test if the entity if properly decrypted
+     * To test if the entity is properly decrypted
      *
      * @FrameworkExtra\Route("/{id}", name="card_view")
      * @FrameworkExtra\Method("GET")
