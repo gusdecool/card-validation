@@ -1,6 +1,8 @@
 card-validation
 ===============
 
+[![Build Status](https://scrutinizer-ci.com/g/gusdecool/card-validation/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gusdecool/card-validation/build-status/master)
+
 Installation
 ------------
 
