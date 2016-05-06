@@ -3,9 +3,76 @@
 {% block title %}Credit Card{% endblock %}
 
 {% block body %}
-    <div class="row">
+    <div class="row" ng-controller="CreditCardFormController" ng-cloak>
         <div class="col-md-4">
-            Testing
+            <h1>Credit Card</h1>
+
+            <form name="creditCardForm" ng-submit="submit(creditCard)" novalidate>
+                <div class="form-group">
+                    <label for="form-name">Name</label>
+                    <input name="inputName"
+                           ng-model="creditCard.name"
+                           ng-required="true"
+                           ng-pattern="/^[a-zA-Z]+(\ [a-zA-Z]+)*$/"
+                           type="text"
+                           class="form-control"
+                           id="form-name"
+                           placeholder="Name" />
+
+                    <div ng-show="creditCardForm.inputName.$dirty && !creditCardForm.inputName.$valid"
+                         ng-messages="creditCardForm.inputName.$error"
+                         class="alert alert-danger"
+                         role="alert">
+                        <div ng-message="required">name is required</div>
+                        <div ng-message="pattern">name can only contain letters</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="form-postcode">Postcode</label>
+                    <input name="inputPostcode"
+                           ng-model="creditCard.postcode"
+                           ng-required="true"
+                           type="number"
+                           maxlength="4"
+                           minlength="4"
+                           class="form-control"
+                           id="form-postcode"
+                           placeholder="Postcode" />
+
+                    <div ng-show="creditCardForm.inputPostcode.$dirty && !creditCardForm.inputPostcode.$valid"
+                         ng-messages="creditCardForm.inputPostcode.$error"
+                         class="alert alert-danger"
+                         role="alert">
+                        <div ng-message="required">postcode is required</div>
+                        <div ng-message="minlength">postcode must be 4 digit</div>
+                        <div ng-message="maxlength">postcode must be 4 digit</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="form-postcode">Credit card number</label>
+                    <input name="inputCardNumber"
+                           ng-model="creditCard.credit_card_number"
+                           ng-required="true"
+                           credit-card-validator
+                           type="text"
+                           class="form-control"
+                           id="form-postcode"
+                           placeholder="Credit card number" />
+
+                    <div ng-show="creditCardForm.inputCardNumber.$dirty && !creditCardForm.inputCardNumber.$valid"
+                         ng-messages="creditCardForm.inputCardNumber.$error"
+                         class="alert alert-danger"
+                         role="alert">
+                        <div ng-message="required">credit card is required</div>
+                        <div ng-message="creditCard">credit card number is invalid</div>
+                    </div>
+                </div>
+                <button type="submit"
+                        ng-disabled="!creditCardForm.$valid"
+                        class="btn btn-primary">Submit</button>
+            </form>
+
         </div>
     </div>
 {% endblock %}

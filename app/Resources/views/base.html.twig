@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="app">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,21 +9,28 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap.css') }}" />
             <link rel="stylesheet" href="{{ asset('vendor/bootstrap/dist/css/bootstrap-theme.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
         {% endblock %}
 
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         <div class="container">
-            {% block body %}
-            {% endblock %}
+            {% block body %}{% endblock %}
         </div>
 
         <div rel="javascript-library">
             {% block javascripts %}
-                <script src="{{ asset('vendor/jquery/dist/jquery.js') }}"></script>
-                <script src="{{ asset('vendor/bootstrap/dist/js/bootstrap.js') }}"></script>
                 <script src="{{ asset('vendor/angular/angular.js') }}"></script>
+                <script src="{{ asset('vendor/angular-messages/angular-messages.js') }}"></script>
+                <script src="{{ asset('vendor/jquery/dist/jquery.js') }}"></script>
+                <script src="{{ asset('vendor/angular-bootstrap/ui-bootstrap-tpls.js') }}"></script>
+
+                <script src="{{ asset('js/app.js') }}"></script>
+                <script src="{{ asset('js/controller/credit-card-form-controller.js') }}"></script>
+                <script src="{{ asset('js/directive/credit-card-validator.js') }}"></script>
+                <script src="{{ asset('js/utility/algorithm-utility.js') }}"></script>
+                <script src="{{ asset('js/utility/card-type-utility.js') }}"></script>
             {% endblock %}
         </div>
     </body>
