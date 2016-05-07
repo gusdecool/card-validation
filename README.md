@@ -19,7 +19,7 @@ Installation
 **Using local environment**
 
 1. Clone the project
-2. Use php version `>=5.6.21`
+2. Use php version `5.6.*`
 3. Install required library
     1. [Bower](http://bower.io/)
     2. [php-mycrypt](http://php.net/manual/en/book.mcrypt.php)
