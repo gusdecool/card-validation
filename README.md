@@ -3,6 +3,7 @@ card-validation
 
 [![Build Status](https://scrutinizer-ci.com/g/gusdecool/card-validation/badges/build.png?b=master)](https://scrutinizer-ci.com/g/gusdecool/card-validation/build-status/master)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/gusdecool/card-validation/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/gusdecool/card-validation/?branch=master)
+[![Code Coverage](https://scrutinizer-ci.com/g/gusdecool/card-validation/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/gusdecool/card-validation/?branch=master)
 
 Installation
 ------------
